@@ -15,7 +15,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | TAB    |   B  |   É  |   P  |   O  |   È  |Back  |           |Back  |   !  |   V  |   D  |   L  |   J  |   Z    |
  * |--------+------+------+------+------+------|Space |           |Space |------+------+------+------+------+--------|
- * | ~L1    |   A  |   U  |   I  |   E  |   ;  |------|           |------|   C  |   T  |   S  |   R  |   N  |   M    |
+ * | ~L1/Ê  |   A  |   U  |   I  |   E  |   ;  |------|           |------|   C  |   T  |   S  |   R  |   N  |   M    |
  * |--------+------+------+------+------+------|Enter |           |Enter |------+------+------+------+------+--------|
  * | Ç      |   À  |   Y  |   X  |   .  |   K  |      |           |      |   ?  |   Q  |   G  |   H  |   F  |   W    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -30,14 +30,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `----------------------'
  */
 // If it accepts an argument (i.e, is a function), it doesn't need KC_.
-// Otherwise, it needs KC_*
-[BASE] = KEYMAP(  // layer 0 : default
+// Otherwise, it needs KC_                      *
+[BASE] = KEYMAP(  // layer                       0 : default
         // left hand
-   BP_DOLLAR,               BP_DOUBLE_QUOTE,     BP_LEFT_GUILLEMET,   BP_RIGHT_GUILLEMET,   BP_LEFT_PAREN, BP_RIGHT_PAREN,   KC_UNDEFINED,
-   KC_TAB,                  BP_B,                BP_E_ACUTE,          BP_P,                 BP_O,          BP_E_GRAVE,       KC_BSPC,
-   MO(CURSOR_KEYS),                BP_A,                BP_U,                BP_I,                 BP_E,          BP_COMMA,         
-   BP_C_CEDILLA,            BP_A_GRAVE,          BP_Y,                BP_X,                 BP_DOT,        BP_K,             KC_ENT,
-   KC_LALT,                 KC_UNDEFINED,        KC_UNDEFINED,        KC_LGUI,              KC_RALT,
+   BP_DOLLAR,                        BP_DOUBLE_QUOTE,     BP_LEFT_GUILLEMET,   BP_RIGHT_GUILLEMET,   BP_LEFT_PAREN, BP_RIGHT_PAREN,   KC_UNDEFINED,
+   KC_TAB,                           BP_B,                BP_E_ACUTE,          BP_P,                 BP_O,          BP_E_GRAVE,       KC_BSPC,
+   LT(CURSOR_KEYS, BP_E_CIRCUMFLEX), BP_A,                BP_U,                BP_I,                 BP_E,          BP_COMMA,         
+   BP_C_CEDILLA,                     BP_A_GRAVE,          BP_Y,                BP_X,                 BP_DOT,        BP_K,             KC_ENT,
+   KC_LALT,                          KC_UNDEFINED,        KC_UNDEFINED,        KC_LGUI,              KC_RALT,
                                                                                                            KC_DELETE,        KC_RGUI,
                                                                                                                              KC_LALT,
                                                                                             KC_SPC,        KC_LSHIFT,        CTL_T(KC_ESCAPE),
