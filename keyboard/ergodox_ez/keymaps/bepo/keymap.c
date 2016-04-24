@@ -11,7 +11,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   #    |   "  |   «  |   »  |   (  |   )  |      |           |   %  |   @  |   +  |   -  |   /  |   *  |   =    |
+ * |   #    |   "  |   «  |   »  |   (  |   )  | INS  |           |   %  |   @  |   +  |   -  |   /  |   *  |   =    |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * | TAB    |   B  |   É  |   P  |   O  |   È  |Back  |           |Back  |   !  |   V  |   D  |   L  |   J  |   Z    |
  * |--------+------+------+------+------+------|Space |           |Space |------+------+------+------+------+--------|
@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Otherwise, it needs KC_                      *
 [BASE] = KEYMAP(  // layer                       0 : default
         // left hand
-   BP_DOLLAR,                        BP_DOUBLE_QUOTE,     BP_LEFT_GUILLEMET,   BP_RIGHT_GUILLEMET,   BP_LEFT_PAREN, BP_RIGHT_PAREN,   KC_UNDEFINED,
+   BP_DOLLAR,                        BP_DOUBLE_QUOTE,     BP_LEFT_GUILLEMET,   BP_RIGHT_GUILLEMET,   BP_LEFT_PAREN, BP_RIGHT_PAREN,   KC_INSERT,
    KC_TAB,                           BP_B,                BP_E_ACUTE,          BP_P,                 BP_O,          BP_E_GRAVE,       KC_BSPC,
    LT(CURSOR_KEYS, BP_E_CIRCUMFLEX), BP_A,                BP_U,                BP_I,                 BP_E,          BP_COMMA,         
    BP_C_CEDILLA,                     BP_A_GRAVE,          BP_Y,                BP_X,                 BP_DOT,        BP_K,             KC_ENT,
