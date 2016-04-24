@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|Enter |           |Enter |------+------+------+------+------+--------|
  * | Ç      |   À  |   Y  |   X  |   .  |   K  |      |           |      |   ?  |   Q  |   G  |   H  |   F  |   W    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |LAlt  |      |      | GUI  | RAlt |                                       |  Left| Right|  Up  | Down |    L2  |
+ *   | MUTE |  V+  |  V-  | GUI  | RAlt |                                       |      |      |      |      |    L2  |
  *   `----------------------------------'                                       `------------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | DEL  | GUI  |       | PgUp | Esc  |
@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_TAB,                           BP_B,                BP_E_ACUTE,          BP_P,                 BP_O,          BP_E_GRAVE,       KC_BSPC,
    LT(CURSOR_KEYS, BP_E_CIRCUMFLEX), BP_A,                BP_U,                BP_I,                 BP_E,          BP_COMMA,         
    BP_C_CEDILLA,                     BP_A_GRAVE,          BP_Y,                BP_X,                 BP_DOT,        BP_K,             KC_ENT,
-   KC_LALT,                          KC_UNDEFINED,        KC_UNDEFINED,        KC_LGUI,              KC_RALT,
+   KC_MUTE,                          KC_VOLU,             KC_VOLD,             KC_LGUI,              KC_RALT,
                                                                                                            KC_DELETE,        KC_RGUI,
                                                                                                                              KC_LALT,
                                                                                             KC_SPC,        KC_LSHIFT,        CTL_T(KC_ESCAPE),
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_BSPC,                 BP_DEAD_CIRCUMFLEX,  BP_V,                BP_D,                 BP_L,          BP_J,                BP_Z,
                             BP_C,                BP_T,                BP_S,                 BP_R,          BP_N,                BP_M,
    KC_ENT,                  BP_APOSTROPHE,       BP_Q,                BP_G,                 BP_H,          BP_F,                BP_W,
-                                                 KC_LEFT,             KC_RIGHT,             KC_UP,         KC_DOWN,             TG(NPAD),
+                                                 KC_UNDEFINED,        KC_UNDEFINED,         KC_UNDEFINED,  KC_UNDEFINED,        TG(NPAD),
    KC_PGUP,                 KC_ESC,
    KC_PGDN,
    KC_RALT,                 KC_RSHIFT,           KC_SPACE
