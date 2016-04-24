@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|Enter |           |Enter |------+------+------+------+------+--------|
  * | Ç      |   À  |   Y  |   X  |   .  |   K  |      |           |      |   ?  |   Q  |   G  |   H  |   F  |   W    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | MUTE |  V+  |  V-  | GUI  | RAlt |                                       |      |      |      |      |    L2  |
+ *   | MUTE |  V+  |  V-  | GUI  | RAlt |                                       | MENU |      |      |      |    L2  |
  *   `----------------------------------'                                       `------------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | DEL  | GUI  |       | PgUp | Esc  |
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_BSPC,                 BP_DEAD_CIRCUMFLEX,  BP_V,                BP_D,                 BP_L,          BP_J,                BP_Z,
                             BP_C,                BP_T,                BP_S,                 BP_R,          BP_N,                BP_M,
    KC_ENT,                  BP_APOSTROPHE,       BP_Q,                BP_G,                 BP_H,          BP_F,                BP_W,
-                                                 KC_UNDEFINED,        KC_UNDEFINED,         KC_UNDEFINED,  KC_UNDEFINED,        TG(NPAD),
+                                                 KC_APP,              KC_UNDEFINED,         KC_UNDEFINED,  KC_UNDEFINED,        TG(NPAD),
    KC_PGUP,                 KC_ESC,
    KC_PGDN,
    KC_RALT,                 KC_RSHIFT,           KC_SPACE
