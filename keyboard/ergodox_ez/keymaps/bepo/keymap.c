@@ -57,13 +57,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |           |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |      |      | MsUp |      |      |      |           |      |      | Home |  Up  | End  |      |        |
+ * |        |      |      | MsUp |      | WHUP |      |           | Lclk |      | Home |  Up  | End  |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |      | MsLe | MsDo | MsRi |      |------|           |------|      | Left | Down | Right|      |        |
- * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      | MsLe | MsDo | MsRi | WHD  |------|           |------|      | Left | Down | Right|      |        |
+ * |--------+------+------+------+------+------|      |           | Rclk |------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      | Lclk | Rclk |                                       |      |      |      |      |      |
+ *   |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |      |      |
@@ -76,22 +76,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [CURSOR_KEYS] = KEYMAP(
        // left hand
        KC_UNDEFINED,  KC_F1,         KC_F2,         KC_F3,         KC_F4,         KC_F5,         KC_F6,
-       KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,  KC_MS_U,       KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,
-       KC_TRNS,       KC_UNDEFINED,  KC_MS_L,       KC_MS_D,       KC_MS_R,       KC_UNDEFINED,  
+       KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,  KC_MS_U,       KC_UNDEFINED,  KC_WH_U,  KC_UNDEFINED,
+       KC_TRNS,       KC_UNDEFINED,  KC_MS_L,       KC_MS_D,       KC_MS_R,       KC_WH_D,  
        KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,
-       KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,  KC_BTN1,       KC_BTN2,
-                                                                                  KC_UNDEFINED,  KC_UNDEFINED,
-                                                                                                 KC_UNDEFINED,
-                                                                   KC_UNDEFINED,  KC_UNDEFINED,  KC_TRNS,
+       KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,  KC_TRNS,       KC_TRNS,
+                                                                                  KC_TRNS,  KC_TRNS,
+                                                                                                 KC_TRNS,
+                                                                   KC_TRNS,  KC_TRNS,  KC_TRNS,
        // right hand
        KC_F7,        KC_F8,          KC_F9,          KC_F10,          KC_F11,          KC_F12,       KC_UNDEFINED,
-       KC_UNDEFINED, KC_UNDEFINED,   KC_HOME,        KC_UP,           KC_END,          KC_UNDEFINED, KC_UNDEFINED,
+       KC_BTN1, KC_UNDEFINED,   KC_HOME,        KC_UP,           KC_END,          KC_UNDEFINED, KC_UNDEFINED,
                      KC_UNDEFINED,   KC_LEFT,        KC_DOWN,         KC_RIGHT,        KC_UNDEFINED, KC_UNDEFINED,
-       KC_UNDEFINED, KC_UNDEFINED,   KC_UNDEFINED,   KC_UNDEFINED,    KC_UNDEFINED,    KC_UNDEFINED, KC_UNDEFINED,
+       KC_BTN2, KC_UNDEFINED,   KC_UNDEFINED,   KC_UNDEFINED,    KC_UNDEFINED,    KC_UNDEFINED, KC_UNDEFINED,
                      KC_UNDEFINED,   KC_UNDEFINED,   KC_UNDEFINED,    KC_UNDEFINED,    KC_UNDEFINED,
-       KC_UNDEFINED, KC_UNDEFINED,
-       KC_UNDEFINED,
-       KC_UNDEFINED, KC_UNDEFINED,   KC_UNDEFINED
+       KC_TRNS, KC_TRNS,
+       KC_TRNS,
+       KC_TRNS, KC_TRNS,   KC_TRNS
 ),
 /* Keymap 2: Keypad
  *
