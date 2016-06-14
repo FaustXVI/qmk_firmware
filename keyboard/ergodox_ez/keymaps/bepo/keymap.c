@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|Enter |           |Enter |------+------+------+------+------+--------|
  * | Ç      |   À  |   Y  |   X  |   .  |   K  |      |           |      |   ?  |   Q  |   G  |   H  |   F  |   W    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | MUTE |  V+  |  V-  | GUI  | RAlt |                                       | MENU |      |      |      |    L2  |
+ *   | MUTE |  V+  |  V-  | GUI  | LAlt |                                       | MENU |      |      |      |    L2  |
  *   `----------------------------------'                                       `------------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | DEL  | GUI  |       | PgUp | Esc  |
@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_TAB,                           BP_B,                BP_E_ACUTE,          BP_P,                 BP_O,          BP_E_GRAVE,       KC_BSPC,
    LT(CURSOR_KEYS, BP_E_CIRCUMFLEX), BP_A,                BP_U,                BP_I,                 BP_E,          BP_COMMA,         
    BP_C_CEDILLA,                     BP_A_GRAVE,          BP_Y,                BP_X,                 BP_DOT,        BP_K,             KC_ENT,
-   KC_MUTE,                          KC_VOLU,             KC_VOLD,             KC_LGUI,              KC_RALT,
+   KC_MUTE,                          KC_VOLU,             KC_VOLD,             KC_LGUI,              KC_LALT,
                                                                                                            KC_DELETE,        KC_RGUI,
                                                                                                                              KC_LALT,
                                                                                             KC_SPC,        KC_LSHIFT,        CTL_T(KC_ESCAPE),
@@ -171,10 +171,10 @@ void matrix_scan_user(void) {
     ergodox_right_led_3_off();
     switch (layer) {
       // TODO: Make this relevant to the ErgoDox EZ.
-        case 1:
+        case CURSOR_KEYS:
             ergodox_right_led_1_on();
             break;
-        case 2:
+        case NPAD:
             ergodox_right_led_2_on();
             break;
         default:
