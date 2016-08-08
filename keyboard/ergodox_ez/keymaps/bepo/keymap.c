@@ -125,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                  KC_UNDEFINED,
                                                                    KC_UNDEFINED,  KC_UNDEFINED,  KC_UNDEFINED,
        // right hand
-       KC_UNDEFINED, KC_UNDEFINED,   KC_KP_PLUS,        KC_KP_MINUS,         KC_KP_SLASH,           KC_KP_ASTERISK,  KC_KP_EQUAL,
+       KC_NUMLOCK, KC_UNDEFINED,   KC_KP_PLUS,        KC_KP_MINUS,         KC_KP_SLASH,           KC_KP_ASTERISK,  KC_KP_EQUAL,
        KC_TRNS,      KC_UNDEFINED,   KC_KP_7,           KC_KP_8,             KC_KP_9,               KC_UNDEFINED, KC_UNDEFINED,
                      KC_UNDEFINED,   KC_KP_4,           KC_KP_5,             KC_KP_6,               KC_UNDEFINED, KC_UNDEFINED,
        KC_KP_ENTER,  KC_UNDEFINED,   KC_KP_1,           KC_KP_2,             KC_KP_3,               KC_UNDEFINED, KC_UNDEFINED,
