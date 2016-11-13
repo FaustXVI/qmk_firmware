@@ -3,9 +3,10 @@
 #include "action_layer.h"
 #include "keymap_bepo.h"
 
-#define BASE 0 // default layer
-#define CURSOR_KEYS 1 // symbols
-#define NPAD 2 // media keys
+#define BASE 0 
+#define CURSOR_KEYS 1
+#define NPAD 2
+#define GAME 3 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -19,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|Enter |           |Enter |------+------+------+------+------+--------|
  * | Ç      |   À  |   Y  |   X  |   .  |   K  |      |           |      |   ?  |   Q  |   G  |   H  |   F  |   W    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   | MUTE |  V+  |  V-  | GUI  | LAlt |                                       | MENU |      |      |      |    L2  |
+ *   | MUTE |  V+  |  V-  | GUI  | LAlt |                                       | MENU |  L3  |      |      |    L2  |
  *   `----------------------------------'                                       `------------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | DEL  | GUI  |       | PgUp | Esc  |
@@ -47,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_BSPC,                 BP_DEAD_CIRCUMFLEX,  BP_V,                BP_D,                 BP_L,          BP_J,                BP_Z,
                             BP_C,                BP_T,                BP_S,                 BP_R,          BP_N,                BP_M,
    KC_ENT,                  BP_APOSTROPHE,       BP_Q,                BP_G,                 BP_H,          BP_F,                BP_W,
-                                                 KC_APP,              KC_UNDEFINED,         KC_UNDEFINED,  KC_UNDEFINED,        TG(NPAD),
+                                                 KC_APP,              TG(GAME),             KC_UNDEFINED,  KC_UNDEFINED,        TG(NPAD),
    KC_PGUP,                 KC_ESC,
    KC_PGDN,
    KC_RALT,                 KC_RSHIFT,           KC_SPACE
@@ -104,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|      |           | ENT  |------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |           |      |      |  1   |  2   |  3   |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |      |      |      |      |      |                                       |  0   |      |  .   |      |      |
+ *   |      |      |      |      |      |                                       |  0   |  ,   |  .   |      | L0   |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        |      |      |       |      |      |
@@ -133,6 +134,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_UNDEFINED, KC_UNDEFINED,
        KC_UNDEFINED,
        KC_UNDEFINED, KC_UNDEFINED,   KC_UNDEFINED
+),
+
+/* Keymap 3: Gaming
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |   #    |   "  |   «  |   »  |   (  |   )  | INS  |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |  TAB   |   1  |  2   | UP   |  3   |  4   |Back  |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+------|Space |           |      |------+------+------+------+------+--------|
+ * |   A    |   5  | LEFT | DOWN | RIGHT|  6   |------|           |------|      |      |      |      |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |   B    |   7  |  8   |   9  |  0   |  C   |Enter |           |      |      |      |      |      |      |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   | MUTE |  V+  |  V-  | GUI  | LAlt |                                       |      |  L0  |      |      |      |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        | DEL  | GUI  |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      | LAlt |       |      |      |      |
+ *                                 | Space|LShift|------|       |------|      |      |
+ *                                 |      |      |ctr/Es|       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+[GAME] = KEYMAP(
+        // left hand
+       BP_DOLLAR,    BP_DOUBLE_QUOTE,     BP_LEFT_GUILLEMET,   BP_RIGHT_GUILLEMET,   BP_LEFT_PAREN,    BP_RIGHT_PAREN,   KC_INSERT,
+       KC_TAB,       KC_KP_1,             KC_KP_2,             KC_UP,                KC_KP_3,          KC_KP_4,          KC_BSPC,
+       BP_A,         KC_KP_5,             KC_LEFT,             KC_DOWN,              KC_RIGHT,         KC_KP_6,  
+       BP_B,         KC_KP_7,             KC_KP_8,             KC_KP_9,              KC_KP_0,          BP_C,             KC_ENT,
+       KC_MUTE,      KC_VOLU,             KC_VOLD,             KC_LGUI,              KC_LALT,
+                                                                                                       KC_DELETE,        KC_RGUI,
+                                                                                                                         KC_LALT,
+                                                                                     KC_SPC,           KC_LSHIFT,        CTL_T(KC_ESCAPE),
+       // right hand
+       KC_UNDEFINED, KC_UNDEFINED,        KC_UNDEFINED,        KC_UNDEFINED,         KC_UNDEFINED,     KC_UNDEFINED,     KC_UNDEFINED,
+       KC_UNDEFINED, KC_UNDEFINED,        KC_UNDEFINED,        KC_UNDEFINED,         KC_UNDEFINED,     KC_UNDEFINED,     KC_UNDEFINED,
+                     KC_UNDEFINED,        KC_UNDEFINED,        KC_UNDEFINED,         KC_UNDEFINED,     KC_UNDEFINED,     KC_UNDEFINED,
+       KC_UNDEFINED, KC_UNDEFINED,        KC_UNDEFINED,        KC_UNDEFINED,         KC_UNDEFINED,     KC_UNDEFINED,     KC_UNDEFINED,
+                                          KC_UNDEFINED,        KC_TRNS,              KC_UNDEFINED,     KC_UNDEFINED,     KC_UNDEFINED,
+       KC_UNDEFINED, KC_UNDEFINED,
+       KC_UNDEFINED,
+       KC_UNDEFINED, KC_UNDEFINED,        KC_UNDEFINED
 ),
 };
 
@@ -176,6 +219,9 @@ void matrix_scan_user(void) {
             break;
         case NPAD:
             ergodox_right_led_2_on();
+            break;
+        case GAME:
+            ergodox_right_led_3_on();
             break;
         default:
             // none
