@@ -48,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_BSPC,                 BP_DEAD_CIRCUMFLEX,  BP_V,                BP_D,                 BP_L,          BP_J,                BP_Z,
                             BP_C,                BP_T,                BP_S,                 BP_R,          BP_N,                BP_M,
    KC_ENT,                  BP_APOSTROPHE,       BP_Q,                BP_G,                 BP_H,          BP_F,                BP_W,
-                                                 KC_APP,              M(GAME),             KC_UNDEFINED,  KC_UNDEFINED,        TG(NPAD),
+                                                 KC_APP,              M(GAME),             KC_UNDEFINED,  KC_UNDEFINED,        M(NPAD),
    KC_PGUP,                 KC_ESC,
    KC_PGDN,
    KC_RALT,                 KC_RSHIFT,           KC_SPACE
@@ -185,13 +185,26 @@ const uint16_t PROGMEM fn_actions[] = {
 
  const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
+    uint8_t layer = biton32(layer_state);
       switch(id) {
         case NPAD:
-              layer_on(NPAD);
-              return MACRO(T(NUMLOCK),END);
+              if(record->event.pressed){
+                if(layer == NPAD){
+                  layer_off(NPAD);
+                }else{
+                  layer_on(NPAD);
+                }
+                return MACRO(T(NUMLOCK),END);
+              }
         case GAME:
-              layer_on(GAME);
-              return MACRO(T(NUMLOCK),END);
+              if(record->event.pressed){
+                if(layer == GAME){
+                  layer_off(GAME);
+                }else{
+                  layer_on(GAME);
+                }
+                return MACRO(T(NUMLOCK),END);
+              }
         break;
       }
     return MACRO_NONE;
